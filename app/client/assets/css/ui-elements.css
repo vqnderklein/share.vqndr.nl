@@ -1,0 +1,72 @@
+/*https://uiverse.io/Satwinder04/pink-bat-77*/
+
+.input-container {
+    position: relative;
+}
+
+.input-container input[type="text"],
+.input-container input[type="email"],
+.input-container textarea {
+    font-size: 15px;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    padding: 5px 0;
+    background-color: transparent;
+    outline: none;
+}
+
+.input-container .label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 15px;
+    color: #888888;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.input-container input[type="text"]:focus~.label,
+.input-container input[type="text"]:valid~.label,
+.input-container input[type="email"]:focus~.label,
+.input-container input[type="email"]:valid~.label,
+.input-container textarea:focus~.label,
+.input-container textarea:valid~.label {
+    top: -16px;
+    font-size: 13px;
+    color: #969696;
+}
+
+.input-container input[type="email"]:not(:placeholder-shown):invalid~.label {
+    top: -16px;
+    font-size: 13px;
+}
+
+.input-container .underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: #333;
+    transform: scaleX(0);
+    transition: all 0.3s ease;
+}
+
+.input-container input[type="text"]:focus~.underline,
+.input-container input[type="text"]:valid~.underline,
+.input-container input[type="email"]:focus~.underline,
+.input-container input[type="email"]:valid~.underline,
+.input-container textarea:focus~.underline,
+.input-container textarea:valid~.underline {
+    transform: scaleX(1);
+}
+
+.input-container textarea:focus,
+.input-container textarea:valid {
+    border-bottom: 2px solid white !important;
+}
+
+.input-container textarea~.underline {
+    bottom: 4px;
+}

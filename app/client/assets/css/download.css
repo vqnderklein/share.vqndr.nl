@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+main#download {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main#download section {
+    width: 400px;
+    position: relative;
+    border-radius: 10px;
+    height: 600px;
+    padding: 2rem 2rem;
+    background-color: white;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+}
+
+header svg {
+    border: 1px solid;
+    border-radius: 50%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    color: rgb(177, 177, 177);
+}
+
+header h1 {
+    font-family: Roboto;
+    color: rgb(56, 56, 56);
+    font-weight: 100;
+    padding-bottom: 0.5rem;
+}
+
+.information {
+    font-weight: 300;
+    font-family: "Noto Sans";
+    font-size: 14px;
+}
+
+.subTitle {
+    font-family: "Noto Sans";
+    font-weight: 600;
+    text-align: left;
+    width: 100%;
+    padding-bottom: 2rem;
+}
+
+.subTitle a {
+    display: block;
+    padding-top: 8px;
+    font-weight: 200;
+    color: #304ffe;
+}
+
+ul.fileListDownload {
+    width: 100%;
+    position: relative;
+    list-style-type: none;
+    padding-bottom: 1rem;
+    height: 400px;
+    overflow-y: scroll;
+}
+
+ul.fileListDownload::-webkit-scrollbar {
+    display: none;
+}
+
+ul.fileListDownload li {
+    background-color: #f7f7f7;
+    border: 1px solid rgb(168, 168, 168);
+    padding: 12px 16px;
+    border-radius: 5px;
+    display: flex;
+    margin-bottom: 5px;
+    justify-content: space-between;
+}
+
+ul.fileListDownload li a {
+    align-items: center;
+    display: flex;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+#download a {
+    text-decoration: none;
+}
+
+ul.fileListDownload li a svg {
+    padding: 5px;
+    border: 1px solid;
+    color: #0026ff;
+    border-radius: 50%;
+    box-sizing: content-box;
+}
+
+p.descr {
+    color: grey;
+    text-align: left;
+    font-size: 13px;
+    padding-top: 3px;
+}
+
+p.title {
+    font-weight: 500;
+    font-family: "Noto Sans";
+    text-align: left;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 250px;
+    white-space: nowrap;
+}
+
+.ext {
+    text-transform: lowercase;
+}
+
+.size {
+    text-transform: uppercase;
+}
+
+.spinning {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        rotate: 0deg;
+    }
+    100% {
+        rotate: 360deg;
+    }
+}
+
+.back {
+    color: #0026ff;
+    width: 100%;
+    text-align: left;
+    margin-top: 4rem;
+    cursor: pointer;
+    position: absolute;
+    bottom: 1rem;
+    left: 2rem;
+}

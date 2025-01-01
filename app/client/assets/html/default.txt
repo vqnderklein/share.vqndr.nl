@@ -1,0 +1,38 @@
+<header id="fileOverHead">
+                    <label for="fileUpload">
+                        <b>Bestand toevoegen</b>
+                    </label>
+                    <label for="dirUpload">
+                        <b>Map toevoegen</b>
+                    </label>
+
+                    <input type="file" name="fileUpload" id="fileUpload" multiple hidden>
+                    <input type="file" name="fileUpload" id="dirUpload" webkitdirectory directory multiple hidden>
+                </header>
+                <div id="fileList"></div>
+                <div class="mainFormContainer">
+                    <div class="input-container">
+                        <input type="email" id="email_sender" required="" placeholder=" ">
+                        <label for="email_sender" class="label">E-mailadres verzender</label>
+                        <div class="underline"></div>
+                    </div>
+                    <div class="input-container">
+                        <input type="email" id="email" required="" placeholder=" ">
+                        <label for="email" class="label">E-mailadres ontvanger</label>
+                        <div class="underline"></div>
+                    </div>
+                    <div class="input-container">
+                        <input type="text" id="subject" required="">
+                        <label for="subject" class="label">Onderwerp</label>
+                        <div class="underline"></div>
+                    </div>
+                    <div class="input-container">
+                        <textarea name="message" id="message" rows="5" required></textarea>
+                        <label for="message" class="label">Bericht</label>
+                        <div class="underline"></div>
+                    </div>
+                </div>
+
+                <footer>
+                    <button type="submit" class="submit">Versturen</button>
+                </footer>

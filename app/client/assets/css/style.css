@@ -1,0 +1,575 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    padding: 0;
+    font-family: Roboto;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 1rem;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1459' height='1000' preserveAspectRatio='none' viewBox='0 0 1459 1000'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1443%26quot%3b)' fill='none'%3e%3crect width='1459' height='1000' x='0' y='0' fill='url(%26quot%3b%23SvgjsLinearGradient1444%26quot%3b)'%3e%3c/rect%3e%3cpath d='M0 0L389.88 0L0 332.6z' fill='rgba(255%2c 255%2c 255%2c .1)'%3e%3c/path%3e%3cpath d='M0 332.6L389.88 0L532.95 0L0 653.06z' fill='rgba(255%2c 255%2c 255%2c .075)'%3e%3c/path%3e%3cpath d='M0 653.06L532.95 0L809.29 0L0 743.29z' fill='rgba(255%2c 255%2c 255%2c .05)'%3e%3c/path%3e%3cpath d='M0 743.29L809.29 0L1155.52 0L0 910.3499999999999z' fill='rgba(255%2c 255%2c 255%2c .025)'%3e%3c/path%3e%3cpath d='M1459 1000L1140.46 1000L1459 958.65z' fill='rgba(0%2c 0%2c 0%2c .1)'%3e%3c/path%3e%3cpath d='M1459 958.65L1140.46 1000L1102.97 1000L1459 712.45z' fill='rgba(0%2c 0%2c 0%2c .075)'%3e%3c/path%3e%3cpath d='M1459 712.45L1102.97 1000L495.36 1000L1459 611.99z' fill='rgba(0%2c 0%2c 0%2c .05)'%3e%3c/path%3e%3cpath d='M1459 611.99L495.3599999999999 1000L492.0699999999999 1000L1459 454.69z' fill='rgba(0%2c 0%2c 0%2c .025)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1443'%3e%3crect width='1459' height='1000' fill='white'%3e%3c/rect%3e%3c/mask%3e%3clinearGradient x1='7.86%25' y1='111.47%25' x2='92.14%25' y2='-11.47%25' gradientUnits='userSpaceOnUse' id='SvgjsLinearGradient1444'%3e%3cstop stop-color='%230e2a47' offset='0'%3e%3c/stop%3e%3cstop stop-color='rgba(0%2c 59%2c 255%2c 1)' offset='1'%3e%3c/stop%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e");
+}
+
+nav {
+    position: relative;
+    z-index: 10000;
+}
+
+nav>img {
+    max-height: 50px;
+}
+
+body>nav:first-child {
+    display: flex;
+    justify-content: space-between;
+}
+
+nav>span {
+    display: flex;
+    gap: 1rem;
+}
+
+nav>span>ul {
+    list-style-type: none;
+    padding: 6px 24px;
+    background-color: white;
+    width: max-content;
+    border-radius: 10px;
+    display: flex;
+    transition: 500ms ease-out;
+}
+
+body.sideOpen nav>span>ul {
+    background-color: black;
+    color: white;
+}
+
+aside {
+    transition: 500ms ease width;
+    width: 0;
+    opacity: 0;
+    right: -100em;
+}
+
+body.sideOpen aside {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background-color: white;
+    right: 0;
+    padding: 0 4rem;
+    padding-top: 10rem;
+    opacity: 1;
+}
+
+.subPageContent ul {
+    margin-top: 3rem;
+    list-style-type: none;
+    max-height: 100%;
+    overflow-y: scroll;
+}
+
+.subPageContent ul::-webkit-scrollbar {
+    display: none;
+}
+
+.subPageContent li {
+    margin-bottom: 1rem;
+    cursor: pointer;
+    padding: 1rem;
+    border: 1px solid #dfdfdf;
+    border-radius: 10px;
+    transition: 500ms ease border-color;
+}
+
+.subPageContent ul:not(.files) li:hover {
+    border-color: #0c00f5;
+}
+
+.subPageContent li span {
+    display: flex;
+}
+
+.subPageContent li span p {
+    font-family: "Noto Sans";
+    font-weight: 300;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.subPageContent .dot {
+    height: 5px;
+    margin: 0 0.4rem;
+    color: #b6b6b6;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.subPageContent header {
+    font-size: 20px;
+    padding-bottom: 5px;
+    font-weight: 400;
+    font-family: "Roboto";
+}
+
+body.sideOpen a {
+    color: black;
+    transition: 500ms ease color;
+}
+
+body.sideOpen nav a {
+    color: white;
+}
+
+body.sideOpen nav a.active {
+    font-weight: 500;
+    font-family: "Noto sans";
+}
+
+.subPageTitle {
+    font-family: "Noto sans";
+    font-weight: 500;
+    font-size: 2rem;
+}
+
+.subPageTitle::first-letter {
+    text-transform: uppercase;
+}
+
+nav>span>ul>li {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+nav>span>ul a:nth-child(3) {
+    background-color: #0c00f5;
+    padding: 6px 12px;
+    border-radius: 8px;
+    color: white;
+}
+
+nav ul:nth-child(2) li:not(:last-child) {
+    padding-right: 1rem;
+    margin-right: 1rem;
+    border-right: 1px solid #b6b6b6;
+}
+
+nav>span>ul a {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-decoration: none;
+    color: black;
+}
+
+main {
+    position: absolute;
+    top: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.fileItem b {
+    max-width: 235px;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+}
+
+#uploadSection {
+    display: flex;
+    width: 100%;
+    padding-right: 10rem;
+    align-items: center;
+    height: 100vh;
+    box-sizing: content-box;
+}
+
+#uploadSection>form {
+    padding: 1rem 2rem;
+    width: 400px;
+    border-radius: 0 15px 15px 0;
+    background-color: white;
+}
+
+form header#fileOverHead {
+    display: grid;
+    gap: 1rem;
+    margin-top: -2rem;
+    grid-template-columns: 50% 50%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 14px;
+    padding-bottom: 5px;
+}
+
+form header>label {
+    width: max-content;
+    display: grid;
+    row-gap: 8px;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    margin-left: -1rem;
+    color: black;
+    flex-flow: column;
+    align-content: center;
+    background-color: white;
+    border-radius: 8px;
+    padding: 6px 12px;
+    transition: 300ms ease;
+}
+
+form label:hover {
+    margin-top: -0.5rem;
+}
+
+form b {
+    font-weight: 500;
+}
+
+form label img {
+    display: flex;
+    justify-content: center;
+    max-width: 30px;
+}
+
+form .input-container {
+    margin-top: 1.8rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+label>sup {
+    top: 2px;
+    position: relative;
+    left: 4px;
+    color: #d50000;
+}
+
+textarea {
+    width: 100%;
+    resize: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border: none;
+    outline: none;
+}
+
+.submit {
+    display: block;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    background-color: #0c00f5;
+    color: #ffffff;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    width: 100%;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    outline: transparent;
+    border: none;
+    margin-top: 1em;
+}
+
+#fileList {
+    margin-top: 1rem;
+    max-height: 200px;
+    overflow-y: scroll;
+}
+
+#fileList::-webkit-scrollbar {
+    display: none;
+}
+
+.fileItem {
+    padding: 12px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #efefef;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.fileItem div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.fileItem div>div {
+    display: grid;
+    row-gap: 5px;
+}
+
+.mainFormContainer {
+    margin: -2rem;
+    padding: 2rem;
+    padding-top: 0.5rem;
+    margin-top: 0.5rem;
+    border-top: 1px solid #757575;
+}
+
+aside .user {
+    padding-bottom: 1rem;
+    letter-spacing: 1px;
+    font-family: "Noto sans";
+    font-weight: 300;
+    font-size: 18px;
+}
+
+.fileItem b {
+    font-size: 15px;
+    font-weight: 400;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+aside .subPageContent {
+    width: 100%;
+    height: calc(100% - 10rem);
+}
+
+aside .subPageContent.flexBoxGrid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    gap: 1rem;
+}
+
+aside .subPageContent.flexBoxGrid h2 {
+    font-weight: 300;
+    font-family: "Noto sans";
+}
+
+aside .subPageContent.flexBoxGrid img {
+    max-width: 100%;
+}
+
+.fileItem span {
+    font-size: 13px;
+    font-family: monospace;
+    color: rgb(83, 83, 83);
+}
+
+.fileItem button {
+    width: max-content;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    background-color: #0c00f5;
+    color: white;
+    border: none;
+    outline: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+form.transfering {
+    display: flex;
+    flex-flow: column;
+    gap: 1rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 200;
+    align-items: center;
+    justify-content: center;
+}
+
+form.transfering h2 {
+    font-weight: 200;
+    font-family: "Noto Sans";
+}
+
+.transferDetails {
+    display: flex;
+    gap: 2px;
+    font-size: 15px;
+    align-items: center;
+    margin-top: -5px;
+}
+
+.transferDetails .dot {
+    height: 40px;
+}
+
+.transferDetails p {
+    font-weight: 300;
+    color: #464646;
+    font-family: "Noto sans";
+}
+
+.zoomIN header {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    align-items: center;
+    margin-top: 1rem;
+    border-top: 1px solid #dfdfdf;
+    border-bottom: 1px solid #dfdfdf;
+}
+
+.zoomIN .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.fileList ul {
+    margin: 0;
+    margin-top: 1rem;
+    max-height: 450px;
+    overflow-y: scroll;
+    border-radius: 5px;
+    border: 1px solid #757575;
+}
+
+.fileList li a {
+    display: flex;
+}
+
+.fileList li {
+    margin: 0;
+    padding: 6px 12px;
+    border: none;
+    border-bottom: 1px solid;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.fileList li:last-child {
+    border: none;
+}
+
+.fileList li span {
+    display: grid;
+}
+
+.fileList li header {
+    padding: 0;
+    border: 0;
+    margin: 0;
+    font-size: 15px;
+    font-weight: 400;
+    font-family: "Noto sans";
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+    white-space: nowrap;
+    display: block;
+}
+
+.fileList li p {
+    font-size: 13px;
+    font-weight: 300;
+    font-family: "Noto sans";
+    padding-top: 2px;
+}
+
+.information h2,
+.fileList h2 {
+    font-size: 18px;
+}
+
+.information h2:not(:first-child) {
+    margin-top: 2rem;
+}
+
+.information p {
+    padding-top: 5px;
+    font-weight: 300;
+    font-family: "Noto Sans";
+    font-size: 15px;
+}
+
+ul.actions {
+    display: flex;
+    margin-top: 0;
+    gap: 10px;
+}
+
+ul.actions li {
+    margin: 0;
+    padding: 0
+}
+
+.zoomIN input {
+    padding: 12px 18px;
+    border-radius: 8px;
+    border: 1px solid #b6b6b6;
+    width: 300px;
+    position: relative;
+    outline: transparent;
+}
+
+.fileList a svg {
+    padding: 2px;
+    border: 1px solid #0c00f5;
+    border-radius: 50%;
+    box-sizing: content-box;
+    color: #0c00f5;
+}
+
+.fileList a {
+    color: #0c00f5;
+    cursor: pointer;
+}
+
+.zoomIN label[for="download-uri"] {
+    position: absolute;
+    height: calc(100% - 2px);
+    top: 1px;
+    right: 1px;
+    color: #0c00f5;
+    z-index: 100;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+    right: 10px;
+    background-image: linear-gradient(to right, transparent, white 15%);
+}
+
+.uri_container {
+    width: max-content;
+    position: relative;
+}
+
+ul.actions a {
+    color: #0c00f5;
+    text-decoration: none;
+    display: flex;
+    font-size: 14px;
+    flex-flow: column;
+    align-items: center;
+    gap: 5px;
+    justify-content: center;
+}
+
+ul.actions a svg {
+    padding: 5px;
+    border: 1px solid;
+    border-radius: 50%;
+    box-sizing: content-box;
+}
+
+.actions li {
+    border: none;
+}
