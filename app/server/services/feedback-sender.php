@@ -68,12 +68,12 @@ function MailToSender($id, $subject, $sender, $message, $date, $fileList, $title
     try {
         // Server settings
         $mail->isSMTP();
-        $mail->Host = 'smtp.mailersend.net';
+        $mail->Host = 'mail.smtp2go.com';
         $mail->SMTPAuth = true;
-        $mail->Username = USERNAME;
-        $mail->Password = PASSWD;
+        $mail->Username = USERNAME2;
+        $mail->Password = PASSWD2;
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port = 587;
+        $mail->Port = 2525;
 
         // Sender info
         $mail->setFrom($server_mail, 'share.vqndr.nl');

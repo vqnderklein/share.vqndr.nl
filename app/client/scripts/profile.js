@@ -1,17 +1,25 @@
 import { totalSize, dateFormatter, formatBytes } from './utils.js';
 
-const allProfileAnchorLinks = document.querySelectorAll('nav>span>ul:nth-child(2) li:not(:last-child) a');
+const allProfileAnchorLinks = document.querySelectorAll('nav>span>ul:nth-child(2) li:not(:last-child) a:not([target="_blank"])');
 let profileData;
 
 window.addEventListener('DOMContentLoaded', () => {
-    event.preventDefault();
+
+    const logoutBttn = document.querySelector("a[href='/app/logout']");
+    logoutBttn.addEventListener('click', () => {
+        window.location.reload();
+    });
+
 
     const startLocation = window.location.href.split("/")[4];
 
-    document.querySelectorAll("nav li:not(:last-child) a").forEach(a => {
+    document.querySelectorAll("nav li:not(:last-child) a:not([target='_blank'])").forEach(a => {
         if (a.getAttribute("href") === "/app/" + startLocation)
             a.classList.add("active");
     });
+
+
+
 
     fetchServerContent("/app/api/report").then(result => {
         CreateTransferReport(result);
@@ -26,6 +34,19 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
 
+    const homeBttn = document.querySelector("a[href='/app/home']");
+    homeBttn.addEventListener('click', () => {
+        //Mobile Menu to Home page
+
+        try {
+            document.querySelector(".active").classList.remove('active');
+        } catch (e) {
+            console.log('No DOM element has the class `active`');
+        }
+
+        removeOverlay();
+
+    });
 });
 
 document.querySelector("#uploadSection").addEventListener('click', () => {
@@ -37,7 +58,6 @@ document.querySelector("#uploadSection").addEventListener('click', () => {
 });
 
 allProfileAnchorLinks.forEach(anchorLink => {
-
     anchorLink.addEventListener('click', () => {
         event.preventDefault();
 
@@ -47,15 +67,15 @@ allProfileAnchorLinks.forEach(anchorLink => {
         addOverlay(destination.split("/")[2]);
 
         document.querySelectorAll("nav a.active").forEach(a => {
-
             a.classList.remove("active");
-
         });
 
         anchorLink.classList.add("active");
 
-    });
+        const checkbox = document.querySelector("#mobileMenu");
+        if (checkbox.checked) checkbox.checked = false;
 
+    });
 });
 
 function addOverlay(s) {

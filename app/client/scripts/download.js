@@ -38,10 +38,10 @@ function loadDownloadButton() {
 
     allDownloadsBttns.forEach(button => {
         const fileNameDownload = button.getAttribute("file-name");
-        button.setAttribute("href", `/app/api/download?m=file&i=${downloadID}&f=${fileNameDownload}`);
+        button.setAttribute("href", `/app/api/download?m=file&i=${downloadID}&f=${encodeURIComponent(fileNameDownload)}`);
 
         button.addEventListener("click", (event) => {
-            event.stopPropagation(); // Prevent the event from propagating to parent elements
+            event.stopPropagation();
 
             button.innerHTML = `<svg class="spinning" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3a9 9 0 1 0 9 9"/></svg>`;
 
@@ -58,7 +58,7 @@ function loadDownloadButton() {
     submitButton.setAttribute("href", `/app/api/download?m=zip&i=${downloadID}`);
 
     submitButton.addEventListener("click", function(event) {
-        event.stopPropagation(); // Prevent issues with nested click handlers
+        event.stopPropagation();
 
         fetchServerContent("/app/client/assets/html/upload.txt")
             .then(function(content) {

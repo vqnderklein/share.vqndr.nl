@@ -1,1 +1,7 @@
+
+.htaccess
+app/.env
+/app/server/lib
+app/server/config.php
 /app/client/pages
+/app/server/template

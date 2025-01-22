@@ -23,7 +23,8 @@ if (!doesTransferExist($transfer_id)) {
 }
 
 if ($mode == "file") {
-    $fileName = $_GET['f'] ?? "";
+    $encodedFileName = $_GET['f'];
+    $fileName = urldecode($encodedFileName);
 
     $keys = DatabaseDecrypting($transfer_id);
 

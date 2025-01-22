@@ -21,7 +21,7 @@ nav {
     z-index: 10000;
 }
 
-nav>img {
+nav>picture>* {
     max-height: 50px;
 }
 
@@ -66,6 +66,7 @@ body.sideOpen aside {
     padding: 0 4rem;
     padding-top: 10rem;
     opacity: 1;
+    overflow: scroll;
 }
 
 .subPageContent ul {
@@ -156,7 +157,7 @@ nav>span>ul a:nth-child(3) {
     color: white;
 }
 
-nav ul:nth-child(2) li:not(:last-child) {
+nav ul:nth-child(2)>li:not(:nth-last-child(-n+3)) {
     padding-right: 1rem;
     margin-right: 1rem;
     border-right: 1px solid #b6b6b6;
@@ -182,7 +183,7 @@ main {
 .fileItem b {
     max-width: 235px;
     white-space: nowrap;
-    overflow: hidden !important;
+    overflow: hidden;
     text-overflow: ellipsis;
 }
 
@@ -572,4 +573,311 @@ ul.actions a svg {
 
 .actions li {
     border: none;
+}
+
+picture>.d {
+    display: none;
+}
+
+.mobile {
+    display: none;
+    cursor: pointer;
+}
+
+.mobileMenu {
+    display: none;
+}
+
+label[for="mobileMenu"] {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.mobileMenu {
+    right: 0px;
+    position: fixed;
+    height: 100%;
+    transition: 2500ms ease width;
+    width: 0px;
+    background-color: #333;
+    padding-top: 6rem;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    border-left: 1px solid #464646;
+}
+
+body nav ul.MobileNavMenu li a {
+    padding: 1rem;
+    border-top: 1px solid #b6b6b6;
+    height: fit-content;
+    display: block;
+    color: white;
+    width: 250px;
+}
+
+.mobileMenu li:hover {
+    background-color: #4b4b4b;
+}
+
+.mobileMenu li:last-child {
+    border-bottom: 1px solid #b6b6b6;
+}
+
+.mobileMenu li {
+    display: block;
+}
+
+.MobileNavMenu li:last-child a {
+    background-color: #d50000;
+    color: white;
+    letter-spacing: 1px;
+    font-family: "Noto Sans";
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 800;
+    position: absolute;
+    bottom: 0;
+    justify-content: center;
+}
+
+@media screen and (max-width: 1250px) {
+    body.sideOpen aside {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    body.sideOpen aside {
+        padding: 0 2rem;
+        padding-top: 6rem;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    body.sideOpen aside {
+        width: 70%;
+        border-left: 1px solid #757575;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    body.sideOpen nav>span>ul:first-child {
+        display: none;
+    }
+    nav>span>ul:nth-child(2)>li:nth-child(-n+2) {
+        display: none;
+    }
+    body.sideOpen nav>span>ul:nth-child(2)>li:nth-child(-n+2) {
+        display: flex;
+    }
+    body.sideOpen aside {
+        width: 80%;
+    }
+    #uploadSection {
+        padding-right: 0;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    body.sideOpen aside {
+        width: 90%;
+        top: 0;
+    }
+    #uploadSection {
+        align-items: end;
+        border-radius: 0 15px 0 0;
+    }
+    main {
+        display: block;
+    }
+    #fileList {
+        max-height: 60px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    nav>span>ul:nth-child(2)>li:not(:last-child) {
+        display: none;
+    }
+    body.sideOpen nav ul:nth-child(2) li:not(:nth-last-child(-n+2)) {
+        display: flex;
+    }
+    main {
+        display: block;
+    }
+    body.sideOpen aside {
+        width: 100%;
+    }
+    nav>picture>* {
+        z-index: 100;
+        position: relative;
+    }
+    body.sideOpen picture>.l {
+        display: none;
+    }
+    body.sideOpen picture>.d {
+        display: flex;
+    }
+    .mobile {
+        display: flex;
+    }
+    nav>span>ul:nth-child(2) {
+        aspect-ratio: 1;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1rem;
+    }
+    body.sideOpen nav>span>ul:nth-child(2) {
+        aspect-ratio: 0;
+        padding: 0 1rem;
+    }
+    body.sideOpen .mobile {
+        display: none;
+    }
+    body.sideOpen nav>span>ul:nth-child(2) li:nth-last-child(2) {
+        display: flex;
+    }
+    nav>span>ul.menu:nth-child(2):not(.MobileNavMenu)>li:not(:nth-last-child(-n+2)) {
+        padding-right: 1rem;
+        margin-right: 1rem;
+        border-right: 1px solid #b6b6b6;
+    }
+    body.sideOpen nav a {
+        color: white;
+        height: 32px;
+        display: flex;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    body.sideOpen nav ul:nth-child(2)>li:not(:nth-last-child(4)) {
+        display: none;
+    }
+    body.sideOpen nav>span>ul:nth-child(2) li.mobile {
+        display: flex;
+    }
+    body.sideOpen aside {
+        padding-top: 8rem;
+    }
+    nav>span>ul.menu:nth-child(2)>li:not(:nth-last-child(-n+1)) {
+        padding-right: 1rem;
+        margin-right: 1rem;
+        border-right: 1px solid #b6b6b6;
+    }
+    .subPageContent li span {
+        display: block;
+    }
+    .subPageContent li .dot {
+        display: none;
+    }
+    #mobileMenu:checked~.mobileMenu {
+        right: 0px;
+        cursor: default;
+        width: 250px;
+        display: block;
+    }
+    .fileList li header {
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    body.sideOpen .mobile {
+        display: flex;
+    }
+    body.sideOpen nav>span>ul:nth-child(2)>li:nth-child(-n+1):not(.mobile) {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    nav ul:nth-child(1) li a:nth-child(2) {
+        display: none;
+    }
+    body.sideOpen nav>span>ul:nth-child(2)>li:nth-child(-n+2):not(.mobile) {
+        display: none;
+    }
+    .zoomIN .grid {
+        grid-template-columns: 1fr;
+        row-gap: 1rem;
+    }
+    .fileList {
+        padding-top: 1rem;
+    }
+    .zoomIN .grid {
+        grid-template-columns: 1fr;
+        row-gap: 1rem;
+        max-height: 300px;
+        overflow: scroll;
+        padding-bottom: 2rem
+    }
+    body.sideOpen aside {
+        padding: 0 1.7rem;
+        padding-top: 8rem;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .zoomIN input {
+        max-width: 250px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    nav ul:nth-child(1) li a:nth-child(3) {
+        display: none;
+    }
+    body.sideOpen nav>span>ul:nth-child(2)>li:nth-child(-n+3):not(.mobile) {
+        display: none;
+    }
+    .zoomIN input {
+        max-width: 150px;
+    }
+    #uploadSection>form {
+        border-radius: 0;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .zoomIN input {
+        max-width: 260px;
+    }
+    .zoomIN header {
+        justify-content: center;
+        display: grid;
+    }
+    ul.actions {
+        justify-content: center;
+        margin-top: 8px;
+    }
+    body.sideOpen aside {
+        padding-top: 6rem;
+    }
+    .transferDetails {
+        display: block;
+    }
+    p.dot {
+        display: none;
+    }
+    .subPageTitle {
+        font-size: 1.5rem;
+        padding-bottom: 5px;
+    }
+    #expire {
+        padding-top: 3px;
+    }
+    .information h2:not(:first-child) {
+        margin-top: 10px;
+    }
+    .fileList li header {
+        width: 200px;
+    }
+    .fileList ul {
+        max-height: fit-content;
+    }
 }
