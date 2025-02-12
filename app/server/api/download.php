@@ -28,8 +28,8 @@ if ($mode == "file") {
 
     $keys = DatabaseDecrypting($transfer_id);
 
-    $iv = $keys['iv'];
-    $key = $keys['key'];
+    $iv = $keys['iv'] ? $keys['iv'] : null;
+    $key = $keys['key'] ? $keys['key'] : null;
 
     getFileFromDirectory($transfer_id, $iv, $key, "../../../../uploads/$transfer_id" . "_encrypted.zip", $fileName);
 } else if ($mode == "zip") {

@@ -8,11 +8,17 @@ function getFileFromDirectory($id, $iv, $key, $path, $file)
 
     //Ontsleutel dir
 
-    decryptDirectory($path, $iv, $key, $id);
+    if ($iv !== null || $key !== null)
+        decryptDirectory($path, $iv, $key, $id);
+
 
     //Get file
 
-    $file = ExtractSpecificFile($file, "../../../../uploads/$id-decrypted.zip", "../../../../uploads/$id-temp");
+    if ($iv !== null && $key !== null)
+        $file = ExtractSpecificFile($file, "../../../../uploads/$id-decrypted.zip", "../../../../uploads/$id-temp");
+    else {
+        $file = ExtractSpecificFile($file, "../../../../uploads/$id.zip", "../../../../uploads/$id-temp");
+    }
 
     //Download to user
 
@@ -22,7 +28,9 @@ function getFileFromDirectory($id, $iv, $key, $path, $file)
     //Remove temp folder
 
     deleteDirectory("../../../../uploads/$id-temp");
-    unlink("../../../../uploads/$id-decrypted.zip");
+
+    if ($iv !== null || $key !== null)
+        unlink("../../../../uploads/$id-decrypted.zip");
 }
 
 function getDirToUser($id, $iv, $key)
@@ -32,13 +40,18 @@ function getDirToUser($id, $iv, $key)
     require_once("../services/updateStats.php");
 
     //Ontsleutel dir
-
-    decryptDirectory("../../../../uploads/$id" . "_encrypted.zip", $iv, $key, $id);
+    if ($iv !== null || $key !== null)
+        decryptDirectory("../../../../uploads/$id" . "_encrypted.zip", $iv, $key, $id);
 
     //Rename dir
 
     mkdir("../../../../uploads/$id", 0777);
-    rename("../../../../uploads/$id-decrypted.zip", "../../../../uploads/$id/transfer.zip");
+
+    if ($iv !== null || $key !== null)
+        rename("../../../../uploads/$id-decrypted.zip", "../../../../uploads/$id/transfer.zip");
+    else
+        rename("../../../../uploads/$id.zip", "../../../../uploads/$id/transfer.zip");
+
 
     //Download folder to user
 
@@ -47,5 +60,7 @@ function getDirToUser($id, $iv, $key)
 
     //Cleanup
     deleteDirectory("../../../../uploads/$id/");
-    unlink("../../../../uploads/$id-decrypted.zip");
+
+    if ($iv !== null || $key !== null)
+        unlink("../../../../uploads/$id-decrypted.zip");
 }

@@ -27,6 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         mkdir("../../../../uploads/" . $service_id);
 
         $fileListArray = [];
+        $totalFileSize = 0;
 
         for ($i = 0; $i < count($uploadedFiles['name']); $i++) {
             $fileName = $uploadedFiles['name'][$i];
@@ -39,6 +40,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 "size" => $fileSize,
                 "type" => $uploadedFiles['type'][$i],
             ];
+
+            $totalFileSize += $fileSize;
 
             sendSSE(['status' => "uploading"]);
 
@@ -91,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //Encrypt upload
         sendSSE(['status' => "encrypting"]);
 
-        encryptDirectory("../../../../uploads/", "../../../../uploads/" . $service_id . ".zip", $fileListArray, $email_sender, $email_retriever, $service_id, $subject, $message);
+        encryptDirectory("../../../../uploads/", "../../../../uploads/" . $service_id . ".zip", $fileListArray, $email_sender, $email_retriever, $service_id, $subject, $message, $totalFileSize);
         
         //Send notification
 

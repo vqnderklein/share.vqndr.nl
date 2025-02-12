@@ -182,8 +182,13 @@ function handleFormSubmit(event) {
 
             changeUI("sending");
 
+            setTimeout(() => {
+                window.location.reload();
+            }, 5500);
+
+
         } else {
-            console.error("Server returned error:", xhr.statusText);
+            console.error("Server returned error:", xhr.statusText, xhr.responseText);
         }
     };
 
@@ -191,6 +196,5 @@ function handleFormSubmit(event) {
         console.error("XHR error occurred.");
     };
 
-    // Send the request
     xhr.send(formData);
 }
